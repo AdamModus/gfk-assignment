@@ -1,0 +1,44 @@
+<div class="container-fluid col-sm-6 col-md-6 exercise-collumn">
+   <div class="question">
+      <p>
+         Write a class (prototype) in JavaScript, with at least one method, and another class which extends the previous class.
+      </p>
+      <p>
+         Make sure that when an instance is created of the latter, it returns true for an instanceof-check check for both prototypes and that the method on the first prototype can be invoked.
+      </p>
+   </div>
+   <div class="response">
+      <pre>
+function Feline() {
+   this.purr = function() {
+      return 'purrrrr';
+   };
+}
+
+function Leopard() {
+   this.roar = function() {
+      return 'ROOOAAARRRRR';
+   };
+}
+
+Leopard.prototype = new Feline();
+
+var leppy = new Leopard();
+
+console.log('Is it a feline? ' + (leppy instanceof Feline ? 'yes :D' : 'oh no!'));
+console.log('Is it a leopard? ' + (leppy instanceof Leopard ? 'yes :3' : 'oh no!'));
+
+console.log(leppy.purr());
+console.log(leppy.roar());
+
+      </pre>
+   </div>
+</div>
+<div class="container-fluid col-sm-6 col-md-6 response-in-action exercise-collumn">
+   <div>
+      <button type="button" class="btn btn-default" ng-click="execNumberTwo()">Check the code in action!</button>
+   </div>
+   <div>
+      <textarea class="result" ng-model="numberTwoOutput"></textarea>
+   </div>
+</div>
